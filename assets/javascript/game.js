@@ -1,93 +1,91 @@
-// It's good practice to start using it now
+ // It's good practice to start using it now
 $(document).ready(function(){
-var Random=Math.floor(Math.random()*79+8)
+var random=Math.floor(Math.random()*79+8);
   // Choose a random number to be shown at the start of the game
   // Pick a number between 19 - 120
   //
-  $('#randomEvent').text(Random);
- 
-  var ccone= Math.floor(Math.random()*9+1)
-  var cctwo= Math.floor(Math.random()*9+1)
-  var ccthree= Math.floor(Math.random()*9+1)
-  var ccfour= Math.floor(Math.random()*9+1)
+  $('#randomEvent').text(random);
+ //Define my variables
+  var ccone= Math.floor(Math.random()*9+1);
+  var cctwo= Math.floor(Math.random()*9+1);
+  var ccthree= Math.floor(Math.random()*9+1);
+  var ccfour= Math.floor(Math.random()*9+1);
 
   var score= 0; 
   var wins= 0;
-  var losses = 0;
-//Define my variables
-$('#playerWins').text(wins);
-$('#playerLosses').text(losses);
+  var losses= 0;
+
 //This will make the game start over
 function reset(){
-      Random=Math.floor(Math.random()*79+8);
-      console.log(Random)
-      $('#randomEvent').text(Random);
-      num1= Math.floor(Math.random()*9+1);
-      num2= Math.floor(Math.random()*9+1);
-      num3= Math.floor(Math.random()*9+1);
-      num4= Math.floor(Math.random()*9+1);
+      random=Math.floor(Math.random()*79+8);
+      console.log(random);
+      $('#randomEvent').text(random);
+  var ccone= Math.floor(Math.random()*9+1);
+  var cctwo= Math.floor(Math.random()*9+1);
+  var ccthree= Math.floor(Math.random()*9+1);
+  var ccfour= Math.floor(Math.random()*9+1);
       score= 0;
       $('#grandtotal').text(score);
       } 
 //adds the wins to the score
-function winning(){
-alert("Good for You");
+function win(){
+alert ("Good for You");
   wins++; 
   $('#playerWins').text(wins);
   reset();
 }
 ///losses
-function losing(){
+function loses(){
 alert ("You can do better!");
   losses++;
-  $('#losses').text(losses);
-  reset()
+  $('#playerLosses').text(losses);
+  reset();
 }
 //click event for the crystals
   $('#crystal1').on ('click', function(){
-    score = score + num1;
+    score = score + ccone;
     console.log("New score= " + score);
     $('#grandTotal').text(score); 
-        if (score == Random){
-          winning();
+        if (score == random){
+          win();
         }
-        else if ( score > Random){
-          losing();
+        else if ( score > random){
+          loses();
         }   
-  })  
+  });  
   $('#crystal2').on ('click', function(){
-    score = score + num2;
+    score = score + cctwo;
     console.log("New score= " + score);
     $('#grandTotal').text(score); 
-        if (score == Random){
-          winning();
+        if (score == random){
+          win();
         }
-        else if ( score > Random){
-          losing();
+        else if ( score > random){
+          loses();
         } 
-  })  
+  });  
   $('#crystal3').on ('click', function(){
-    score = score + num3;
+    score = score + ccthree;
     console.log("New score= " + score);
-    $('#grandTotal').text(score;
+    $('#grandTotal').text(score);
 //win-lose
-          if (score == Random){
-          winning();
+          if (score == random){
+          win();
         }
-        else if ( score > Random){
-          losing();
+        else if ( score > random){
+          loses();
         } 
-  })  
+  });  
   $('#crystal4').on ('click', function(){
-    score = score + num4;
+    score = score + ccfour;
     console.log("New score= " + score);
     $('#grandTotal').text(score); 
       
-          if (score == Random){
-          winning();
+          if (score == random){
+          win();
         }
-        else if ( score > Random){
-          losing();
+        else if ( score > random){
+          loses();
         }
   });   
-}); 
+});
